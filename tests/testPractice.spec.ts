@@ -1,10 +1,13 @@
-import {test, Browser, Page} from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
-(async () => {
-    letbrowser: Browser;
-    let page: Page;
-    test.describe('Acciones en el SANDOBOX de automation', () => {
-        test('Click en el boton ID Dinamico', async ({page}) => {
-            page.goto('http://localhost:3000/sandbox-automation-testing');
+test.describe('Acciones en el SANDBOX de automation', () => {
+    
+    test('Click en el boton ID Dinamico', async ({ page }) => {
+        // 1. Navegar a la URL (IMPORTANTE: Agregué el await que faltaba)
+        await page.goto('http://localhost:3000/sandbox-automation-testing');
 
-        }});
+        // 2. Aquí puedes agregar la interacción, por ejemplo:
+        // await page.getByRole('button', { name: 'Dinamico' }).click();
+    });
+
+});
