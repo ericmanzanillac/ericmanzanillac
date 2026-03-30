@@ -7,10 +7,10 @@ import { test, Browser, Page, expect } from '@playwright/test';
   test.describe('Navegación en www.freerangetesters.com', () => {
 
     const secciones = [
-      { nombre: 'Cursos', url: '/cursos', tituloEsperado: 'Cursos' },
-      { nombre: 'Udemy', url: '/udemy', tituloEsperado: 'Udemy' },
-      { nombre: 'Recursos', url: '/recursos', tituloEsperado: 'Recursos' },
-      { nombre: 'Newsletter', url: '/login', tituloEsperado: 'Acceder a Free Range Testers' }
+      { nombre: 'Suscripciones', url: '/suscripciones', tituloEsperado: 'Suscripciones' },
+      { nombre: 'Cursos', url: '/cursos', tituloEsperado: 'Mentoría personalizada de avance de carrera para testers de software' },
+      { nombre: 'Mentorías', url: '/mentoria-1-1-con-pato', tituloEsperado: 'Recursos' },
+      { nombre: 'Eventos', url: '/eventos-en-vivo', tituloEsperado: 'Eventos online' }
       // Agrega más secciones si es necesario
     ];
     for (const seccion of secciones) {
@@ -21,7 +21,7 @@ import { test, Browser, Page, expect } from '@playwright/test';
         });
 
         await test.step(`Cuando hago click en "${seccion.nombre}"`, async () => {
-          page.locator('#page_header').getByRole('link', { name: seccion.nombre, exact: true }).click();
+          await page.locator('#page_header').getByRole('link', { name: seccion.nombre, exact: true }).click();
           await page.waitForURL(`**${seccion.url}`);
         });
 
