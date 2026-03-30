@@ -12,6 +12,6 @@ class Persona{
 }
 
 //Una simple funcion
-function restar(a:number, b:number); number{
+function restar(a:number, b:number): number{
     return a-b;
 }
